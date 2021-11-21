@@ -17,12 +17,12 @@ class Transaction extends Model
       'product_id',
     ];
 
-    public function buyer()
+    public function buyers()
     {
       return $this->belongsTo(Buyer::class);
     }
 
-    public function product()
+    public function products()
     {
       return $this->belongsTo(Product::class);
     }
