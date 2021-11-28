@@ -22,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 //Buyers Route
 
 Route::resource('buyers','App\Http\Controllers\Buyer\BuyerController');
+Route::resource('buyers.transactions','App\Http\Controllers\Buyer\BuyerTransactionController');
+Route::resource('buyers.products','App\Http\Controllers\Buyer\BuyerProductController');
+Route::resource('buyers.sellers','App\Http\Controllers\Buyer\BuyerSellerController');
+Route::resource('buyers.categories','App\Http\Controllers\Buyer\BuyerCategoryController');
 
 //Categories
 
@@ -38,6 +42,7 @@ Route::resource('sellers','App\Http\Controllers\Seller\SellerController');
 //Transaction
 
 Route::resource('transactions','App\Http\Controllers\Transaction\TransactionController');
+Route::resource("transactions.categories","App\Http\Controllers\Transaction\TransactionCategoryController",["only"=>["index"]]);
 
 //Users
 
