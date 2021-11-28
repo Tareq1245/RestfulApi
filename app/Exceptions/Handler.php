@@ -1,19 +1,21 @@
 <?php
 
 namespace App\Exceptions;
-
+use App\Traits\ApiResponser;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
+    use ApiResponser;
     /**
      * A list of the exception types that are not reported.
      *
      * @var string[]
      */
     protected $dontReport = [
-        //
+        //\Illuminate\Validation\ValidationException::class,
     ];
 
     /**
@@ -27,6 +29,8 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
+
+
     /**
      * Register the exception handling callbacks for the application.
      *
@@ -38,4 +42,30 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+
+    // public function render($request, Exception $exception)
+    // {
+    //   if($exception instanceof ValidationException)
+    //   {
+    //     return $this->convertValidationExceptionResponse($exception,$request);
+    //   }
+    //
+    //   if($exception instanceof MethodNotAllowedHttpException)
+    //   {
+    //
+    //   }
+    //
+    //   // if($exception instanceof ModelNotFoundException){
+    //   //
+    //   // }
+    //   return parent::render($request,$exception);
+    // }
+    //
+    // protected function convertValidationExceptionResponse(ValidationException $e, $request)
+    // {
+    //   $error = $e->validator->error()->getMessage();
+    //   return $this->errorResponse($error, 422);
+    // }
+
 }

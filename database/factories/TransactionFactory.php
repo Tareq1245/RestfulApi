@@ -10,9 +10,13 @@ use App\Models\Product;
 
 class TransactionFactory extends Factory
 {
+    /**
+    * the name of the factory's
+    * corresponding model.
+    * @var string
+    */
+    protected $model = Transaction::class;
 
-  protected $model = Transaction::class;
-  
     /**
      * Define the model's default state.
      *

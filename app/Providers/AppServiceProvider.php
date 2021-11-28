@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+      // The default length is 191 for String in Laravel
+      // Because it is 2^8 - 2^6 = 191
+      // we need to set this default value to avoid length error
         Schema::defaultStringLength(191);
     }
 }

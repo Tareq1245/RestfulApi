@@ -41,4 +41,4 @@ Route::resource('transactions','App\Http\Controllers\Transaction\TransactionCont
 
 //Users
 
-Route::resource('users','App\Http\Controllers\User\UserController');
+Route::resource('users','App\Http\Controllers\User\UserController',['except' => ['create','edit']]);
