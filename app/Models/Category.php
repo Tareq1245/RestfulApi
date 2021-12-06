@@ -11,6 +11,8 @@ class Category extends Model
 {
     use HasFactory,SoftDeletes;
 
+
+
     public function products()
     {
       return $this->belongsToMany(Product::class);
@@ -21,5 +23,10 @@ class Category extends Model
     protected $fillable = [
       'name',
       'description',
+    ];
+
+    // Remove the pivot table data from restfulapi
+    protected $hidden= [
+      'pivot'
     ];
 }

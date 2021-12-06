@@ -20,7 +20,7 @@ class Transaction extends Model
 
     protected $dates = ['deleted_at'];
 
-    public function buyers()
+    public function buyer()
     {
       return $this->belongsTo(Buyer::class);
     }
