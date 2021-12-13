@@ -12,8 +12,10 @@ return [
     | based disks are available to your application. Just store away!
     |
     */
-
+    // Make the default location to images to handle image
     'default' => env('FILESYSTEM_DRIVER', 'local'),
+    //'default' => env('FILESYSTEM_DRIVER', 'images'),
+    //'default' => 'images',
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +40,15 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
+            //'root' => public_path('img')
             'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        'images' => [
+            'driver' => 'local',
+            //'root' => storage_path('app/public'),
+            'root' => public_path('img'),
             'visibility' => 'public',
         ],
 

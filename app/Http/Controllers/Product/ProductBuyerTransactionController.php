@@ -6,6 +6,7 @@ use App\Http\Controllers\ApiController;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductBuyerTransactionController extends ApiController
 {
