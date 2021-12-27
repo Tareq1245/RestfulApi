@@ -31,6 +31,14 @@ class DatabaseSeeder extends Seeder
         Transaction::truncate();
         DB::table('category_product')->truncate();
 
+        // To avoid the log issue from factories with many operation
+        // We use flushEventListeners() it is a buil in method for laravel
+
+        User::flushEventListeners();
+        Category::flushEventListeners();
+        Product::flushEventListeners();
+        Transaction::flushEventListeners();
+
         $usersQuantity = 1000;
         $categoriesQuantity = 30;
         $productsQuantity = 1000;

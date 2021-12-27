@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Product;
+use App\Models\User;
+use App\Mail\UserCreated;
+use Illuminate\Support\Facades\Mail;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +35,17 @@ class AppServiceProvider extends ServiceProvider
           $product->save();
         }
       });
+
+      User::created(function($user){
+        Mail::to($user)->send(new UserCreated($user));
+      });
+
+//        User::updated(function($user){
+//            if($user->isDirty('email')){
+//                Mail::to($user->email)->send(new UserCreated($user));
+//            }
+//
+//        });
 
       // The default length is 191 for String in Laravel
       // Because it is 2^8 - 2^6 = 191

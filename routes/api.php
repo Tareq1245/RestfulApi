@@ -59,3 +59,4 @@ Route::resource("transactions.categories","App\Http\Controllers\Transaction\Tran
 //Users
 
 Route::resource('users','App\Http\Controllers\User\UserController',['except' => ['create','edit']]);
+Route::name('verify')->get('users/verify/{token}',['App\Http\Controllers\User\UserController','verify']);
